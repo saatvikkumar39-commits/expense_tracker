@@ -21,15 +21,17 @@ public class Expense {
     @Column(nullable = false)
     private BigDecimal amount;
 
+    private String note;
+
     @CreationTimestamp
     @Column(nullable = false)
     private LocalDateTime createdOn;
 
     @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "userId", nullable = false)
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "category_id", nullable = false)
+    @JoinColumn(name = "categoryId", nullable = false)
     private Category category;
 }
